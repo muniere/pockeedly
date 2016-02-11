@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Shortcut Manager",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Customize keyboard shortcuts as you want",
+    "description": "The description of the application"
+  }
+}
