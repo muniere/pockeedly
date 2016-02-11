@@ -3,17 +3,70 @@
   <head>
     <!-- build:css styles/options-vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css styles/main.css -->
     <link href="styles/main.css" rel="stylesheet">
     <!-- endbuild -->
   </head>
-  <body>
-    <h1>'Allo, 'Allo!</h1>
+  <body ng-app="scm">
+    <div id="content" ng-controller="RootController">
+      <div id="sidebar" class="col-xs-2">
+        <h5 class="row">shortcuts</h5>
+        <ul class="row shortcuts" ng-cloak>
+          <li ng-repeat="shortcut in shortcuts">
+            <button class="btn btn-link" ng-click="activate($index)">{{shortcut.name}}</button>
+          </li>
+        </ul>
+        <div class="row porting text-center">
+          <button class="btn btn-default btn-action btn-sm">import</button>
+          <button class="btn btn-default btn-action btn-sm">export</button>
+        </div>
+      </div>
+      <div id="preference" class="col-xs-10">
+        <div class="row">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-xs-2">Key</label>
+              <div class="col-xs-10">
+                <input type="text" name="text" class="form-control" ng-model="shortcut.key" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-xs-2">Name</label>
+              <div class="col-xs-10">
+                <input type="text" name="text" class="form-control" ng-model="shortcut.name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-xs-2">Patterns</label>
+              <div class="col-xs-10">
+                <textarea type="text" name="patterns" rows="4" class="form-control" ng-model="shortcut.patterns"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-xs-2">Script</label>
+              <div class="col-xs-10">
+                <textarea type="text" name="script" rows="10" class="form-control" ng-model="shortcut.script"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row actions">
+          <div class="col-xs-offset-2 text-center">
+            <button class="btn btn-primary btn-action">Save</button>
+            <button class="btn btn-danger  btn-action">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- build:js scripts/options-vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
