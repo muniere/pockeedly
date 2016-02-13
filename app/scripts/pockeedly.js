@@ -143,7 +143,7 @@ var app = {};
   Config.empty = function() {
     return new Config({
       keymap: Keymap.empty(),
-      script: null
+      script: ''
     });
   };
 
