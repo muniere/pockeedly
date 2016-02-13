@@ -5,7 +5,6 @@ var path = require('path');
 var gulp = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var del = require('del');
-var mkdirp = require('mkdirp');
 var runSequence = require('run-sequence');
 var wiredep = require('wiredep').stream;
 
@@ -83,7 +82,6 @@ gulp.task('watch', ['lint', 'html'], function() {
 
   gulp.watch([
     'app/*.html',
-    'app/libraries/**/*',
     'app/scripts/**/*.js',
     'app/images/**/*',
     'app/styles/**/*',
@@ -111,27 +109,6 @@ gulp.task('build', function(cb) {
     'lint', 'chromeManifest',
     ['html', 'images', 'extras'],
     'size', cb);
-});
-
-gulp.task('package', ['build'], function() {
-  var ChromeExtension = require('crx');
-  var manifest = require('./dist/manifest.json');
-
-  var crx = new ChromeExtension({
-    rootDirectory: 'dist',
-    privateKey: fs.readFileSync(path.join(__dirname, 'wiki-style.pem'))
-  });
-
-  crx.load()
-    .then(function(crx) {
-      return crx.loadContents();
-    })
-    .then(function(buffer) {
-      return crx.pack(buffer);
-    })
-    .then(function(buffer) {
-      fs.writeFileSync('crx/wiki-style-' + manifest.version + '.crx', buffer);
-    });
 });
 
 gulp.task('default', ['clean'], function(cb) {
