@@ -1,6 +1,5 @@
 body {
-  width: 960px;
-  height: 540px;
+  width: 800px;
 }
 
 textarea {
@@ -11,46 +10,52 @@ textarea {
   display: none !important;
 }
 
-#content {
-  padding: 32px;
-  width: 100%;
-  height: 100%;
-}
-
-#sidebar {
-  position: relative;
-  height: 100%;
-}
-
-.shortcuts {
-  list-style: none;
-  max-height: calc(100% - 46px);
-  padding-left: 0;
-  padding-right: 0;
-  overflow: auto;
-}
-
-.porting {
-  position: absolute;
-  bottom: 0;
-}
-
-#preference {
-  position: relative;
-  height: 100%;
-}
-
-.actions {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .btn-action {
   margin: 8px;
 }
 
-.btn-link {
-  padding-left: 0;
-  padding-right: 0;
+#input-keymap {
+  font-family: monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.CodeMirror {
+  box-sizing: border-box;
+  margin: 0;
+  /*font: inherit;*/
+  display: block;
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background: #fff none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+  font-family: monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.CodeMirror-focused {
+  outline: 0;
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.CodeMirror-empty {
+  color: #999;
 }

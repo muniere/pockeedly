@@ -10,11 +10,13 @@
   "default_locale": "en",
   "background": {
     "scripts": [
+      "scripts/pockeedly.js",
       "scripts/background.js"
     ]
   },
   "permissions": [
     "tabs",
+    "storage",
     "http://*/*",
     "https://*/*"
   ],

@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "angular": "^1.5.0"
+    "angular": "^1.5.0",
+    "codemirror": "CodeMirror#~5.11.0",
+    "angular-bootstrap": "^1.1.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -19,6 +21,14 @@
       "dependencies": {
         "jquery": "1.9.1 - 2"
       }
+    },
+    "codemirror": {
+      "main": [
+        "lib/codemirror.js",
+        "lib/codemirror.css",
+        "addon/display/placeholder.js",
+        "mode/javascript/javascript.js"
+      ]
     }
   }
 }
