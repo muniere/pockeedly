@@ -69,9 +69,12 @@
       //
       var prev = [
         'var entry = document.querySelector(".selectedEntry");',
-        'var entryObject = entry ? entry.querySelector("a.title") : null;',
-        'var entryTitle  = entryObject ? entryObject.textContent : "";',
-        'var entryLocation = entryObject ? entryObject.href : "";'
+        'if (!entry) { return; } ',
+        'var entryObject = entry.querySelector("a.title");',
+        'if (!entryObject) { return; } ',
+        'var entryTitle  = entryObject.textContent;',
+        'var entryLocation = entryObject.href;',
+        'if (!entryTitle || !entryLocation) { return ; } '
       ].join('');
 
       var body = script.trim()
