@@ -62,6 +62,19 @@ var app = {};
   };
 
   /**
+   * Judge if this object is match with other
+   *
+   * @param {Keymap} other
+   * @returns {boolean}
+     */
+  Keymap.prototype.match = function(other) {
+    return this.altKey === other.altKey &&
+        this.ctrlKey === other.ctrlKey &&
+        this.shiftKey === other.shiftKey &&
+        this.keyCode === other.keyCode;
+  };
+
+  /**
    * Convert into string.
    *
    * @returns {string}

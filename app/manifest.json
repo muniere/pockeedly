@@ -24,17 +24,15 @@
     "page": "options.html",
     "chrome_style": false
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "scripts/contentscript.js"
-      ],
-      "run_at": "document_end",
-      "all_frames": false
-    }
-  ]
+  "content_scripts": [{
+    "matches": [
+      "https://feedly.com/*"
+    ],
+    "js": [
+      "scripts/pockeedly.js",
+      "scripts/contentscript.js"
+    ],
+    "run_at": "document_start",
+    "all_frames": true
+  }]
 }
