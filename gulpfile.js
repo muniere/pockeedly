@@ -15,7 +15,7 @@ gulp.task('extras', function() {
     'app/*.*',
     'app/_locales/**',
     '!app/*.json',
-    '!app/*.html',
+    '!app/*.html'
   ], {
     base: 'app',
     dot: true
@@ -50,6 +50,7 @@ gulp.task('html',  function() {
   return gulp.src('app/*.html')
     .pipe(assets)
     .pipe($.sourcemaps.init())
+    .pipe($.if('*.js', $.ngAnnotate()))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
     .pipe($.sourcemaps.write())
