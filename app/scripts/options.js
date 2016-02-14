@@ -1,11 +1,14 @@
 (function() {
   'use strict';
 
-  /* global app, chrome, angular, CodeMirror */
+  /* global app, chrome, angular */
 
   // TODO: define `$scope.keystr` as a computed property, not as a stored property
 
-  var mod = angular.module('pockeedly', ['ui.bootstrap']);
+  var mod = angular.module('pockeedly', [
+    'ui.bootstrap',
+    'ui.codemirror'
+  ]);
 
   mod.controller('OptionController', function($scope, $uibModal) {
 
@@ -27,20 +30,10 @@
      */
     $scope.init = function() {
 
-      // view
-      var textarea = document.getElementById('input-script');
-      var editor = CodeMirror.fromTextArea(textarea, {
-        mode: 'javascript',
-        lineWrapping: true
-      });
-      editor.on('change', function() {
-        if ($scope.config) {
-          $scope.config.script = editor.getValue();
-        }
-      });
-
       // data
-      var req = { func: 'load' };
+      var req = {
+        func: 'load'
+      };
 
       chrome.runtime.sendMessage(req, function(res) {
         if (res.error) {
@@ -49,8 +42,6 @@
         }
 
         var config = new Config(res.data.config);
-
-        editor.setValue(config.script);
         $scope.config = config;
         $scope.keystr = config.keystr();
         $scope.$apply();

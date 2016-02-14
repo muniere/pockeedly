@@ -33,7 +33,9 @@
           <label class="control-label col-xs-1" for="input-script">Script</label>
           <div class="col-xs-11">
               <textarea name="script" placeholder="javascript:(function(){...})()"
-                        id="input-script" class="form-control" ng-model="config.script"></textarea>
+                        id="input-script" class="form-control"
+                        ui-codemirror="{ mode: 'javascript', lineWrapping: true }"
+                        ng-model="config.script"></textarea>
           </div>
         </div>
       </form>
@@ -89,6 +91,7 @@
     <script src="bower_components/codemirror/addon/display/placeholder.js"></script>
     <script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
