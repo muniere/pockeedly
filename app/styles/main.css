@@ -18,6 +18,23 @@ textarea {
   padding-bottom: 32px;
 }
 
+.advices {
+  position: relative;
+  font-size: 12px;
+  top: -8px;
+  z-index: 128;
+}
+
+.advices > a {
+  padding: 2px;
+}
+
+
+.actions {
+  position: relative;
+  top: -16px;
+}
+
 .btn-action {
   margin: 8px;
 }
