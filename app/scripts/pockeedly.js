@@ -162,7 +162,25 @@ var app = {};
    * @returns {boolean}
    */
   Config.prototype.valid = function() {
+    return this.filled() || this.empty();
+  };
+
+  /**
+   * Judge if this option is filled or not.
+   *
+   * @returns {boolean}
+   */
+  Config.prototype.filled = function() {
     return this.keymap.valid() && !!this.script;
+  };
+
+  /**
+   * Judge if this option is empty or not.
+   *
+   * @returns {boolean}
+   */
+  Config.prototype.empty = function() {
+    return !this.keymap.valid() && !this.script;
   };
 
   //
