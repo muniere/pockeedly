@@ -68,13 +68,35 @@
       // convert
       //
       var prev = [
-        'var entry = document.querySelector(".selectedEntry");',
-        'if (!entry) { return; } ',
-        'var entryObject = entry.querySelector("a.title");',
-        'if (!entryObject) { return; } ',
+        'var entries = document.querySelectorAll(".entry.selected");',
+        'if (!entries || !entries.length) {',
+        '  console.log("!entries");',
+        '  return;',
+        '}',
+        '',
+        'var entry = entries[entries.length - 1];',
+        'if (!entry) {',
+        '  console.log("!entry");',
+        '  return;',
+        '}',
+        '',
+        'var entryObject = entry.querySelector(".content > a.title");',
+        'if (!entryObject) {',
+        '  console.log("!entryObject");',
+        '  return;',
+        '}',
+        '',
         'var entryTitle  = entryObject.textContent;',
+        'if (!entryTitle) {',
+        '  console.log("!entryTitle");',
+        '  return;',
+        '}',
+        '',
         'var entryLocation = entryObject.href;',
-        'if (!entryTitle || !entryLocation) { return ; } '
+        'if (!entryLocation) {',
+        '  console.log("!entryLocation");',
+        '  return;',
+        '}'
       ].join('');
 
       var body = script.trim()
